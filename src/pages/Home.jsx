@@ -12,13 +12,14 @@ import teamSagar from '../assets/team-sagar.jpg';
 import teamKunal from '../assets/team-kunal.jpg';
 import teamKetan from '../assets/team-ketan.jpg';
 import teamAshish from '../assets/team-ashish.jpg';
+import teamJanak from '../assets/team-janak.jpg';
 
 const team = [
   { initial: 'S', name: 'Sagar', role: 'Chief Executive Officer', bio: 'Working for the past 10 years in IT and Business Development fields.', gradient: 'from-navy to-cyan-500', photo: teamSagar },
   { initial: 'K', name: 'Kunal Kurmi', role: 'Chief Operating Officer', bio: 'B.Tech graduate of Thakur College of Engineering and Technology. Experienced with Spectrum, driving OnAssist and VWarranty.', gradient: 'from-[#0f6a8c] to-[#22d3ee]', photo: teamKunal },
   { initial: 'K', name: 'Ketan', role: 'Chief Strategy Officer', bio: 'Worked with Onsitego, bringing 8 years of deep expertise in the extended warranty field.', gradient: 'from-[#17325c] to-[#0096c7]', photo: teamKetan },
   { initial: 'A', name: 'Ashish', role: 'Chief Financial Officer / Advisor', bio: 'Our dedicated financial advisor, ensuring robust economic growth and stability.', gradient: 'from-[#0b3d66] to-[#48cae4]', photo: teamAshish },
-  { initial: 'J', name: 'Janak', role: 'Investor', bio: 'Strategic investor backing our vision for the future of IT and EMI security.', gradient: 'from-[#0a0f1e] to-[#22d3ee]' },
+  { initial: 'J', name: 'Janak Shah', role: 'Investor', bio: 'Strategic investor backing our vision for the future of IT and EMI security.', gradient: 'from-[#0a0f1e] to-[#22d3ee]', photo: teamJanak },
 ];
 
 export default function Home() {
