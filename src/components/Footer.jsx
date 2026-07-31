@@ -13,6 +13,7 @@ export default function Footer() {
           <li><Link to="/nexwarrenty" className="text-sm transition-colors hover:text-cyan-500">Nexwarrenty</Link></li>
           <li><Link to="/nexlock" className="text-sm transition-colors hover:text-cyan-500">Nexlock</Link></li>
           <li><Link to="/careers" className="text-sm transition-colors hover:text-cyan-500">Careers</Link></li>
+          <li><Link to="/collaborate" className="text-sm transition-colors hover:text-cyan-500">Collaborate</Link></li>
           <li><Link to="/contact" className="text-sm transition-colors hover:text-cyan-500">Contact</Link></li>
         </ul>
       </Container>

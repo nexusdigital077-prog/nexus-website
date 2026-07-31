@@ -7,6 +7,7 @@ import Nexwarrenty from './pages/Nexwarrenty';
 import Nexlock from './pages/Nexlock';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import Collaborate from './pages/Collaborate';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/nexwarrenty" element={<Nexwarrenty />} />
         <Route path="/nexlock" element={<Nexlock />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

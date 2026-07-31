@@ -7,6 +7,7 @@ const navItems = [
   { to: '/nexwarrenty', label: 'Nex Warrenty' },
   { to: '/nexlock', label: 'Security' },
   { to: '/careers', label: 'Careers' },
+  { to: '/collaborate', label: 'Collaborate' },
   { to: '/contact', label: 'Contact' },
 ];
 
