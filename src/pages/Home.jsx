@@ -14,6 +14,7 @@ import teamKetan from '../assets/team-ketan.jpg';
 import teamAshish from '../assets/team-ashish.jpg';
 import teamJanak from '../assets/team-janak.jpg';
 import teamVivek from '../assets/team-vivek.jpg';
+import nexusTeam from '../assets/nexus-team.jpg';
 
 const team = [
   { initial: 'S', name: 'Sagar', role: 'Chief Executive Officer', bio: 'Working for the past 10 years in IT and Business Development fields.', gradient: 'from-navy to-cyan-500', photo: teamSagar },
@@ -139,10 +140,10 @@ export default function Home() {
           >
             <div className="relative aspect-5/4 overflow-hidden rounded-[18px] border border-white/80 shadow-glass-lg after:absolute after:inset-0 after:bg-linear-to-br after:from-cyan-500/16 after:to-transparent after:content-['']">
               <img
-                src="https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?fm=jpg&q=80&w=1200&auto=format&fit=crop"
-                alt="The Nexus team collaborating in the office"
+                src={nexusTeam}
+                alt="The Nexus team at the headquarters office"
                 loading="lazy"
-                className="h-full w-full object-cover [filter:saturate(0.94)]"
+                className="h-full w-full object-cover [filter:saturate(0.98)]"
               />
               <span className="absolute bottom-4 left-4 z-[2] rounded-full bg-[rgba(5,10,18,0.55)] px-2.5 py-1 font-mono text-[0.78rem] text-slate-50 backdrop-blur-xs">
                 NX–TEAM
@@ -151,7 +152,7 @@ export default function Home() {
             <div>
               <Eyebrow>BUILT FROM INSIDE THE INDUSTRY</Eyebrow>
               <h2 className="mb-4 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">People who've sold the warranty, not just written it.</h2>
-              <p className="mb-4 text-slate-600">Our leadership spent the last decade inside Vecare, Onsitego and OnAssist — running claims desks, negotiating with brands, and watching where warranty programs usually let customers down. Nexus exists to fix those gaps.</p>
+              <p className="mb-4 text-slate-600">Our leadership spent the last decade inside Onsitego and OnAssist — running claims desks, negotiating with brands, and watching where warranty programs usually let customers down. Nexus exists to fix those gaps.</p>
               <Link to="/careers" className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-navy transition-[color,gap] duration-250 hover:gap-2 hover:text-pink-700">
                 Meet the team &rarr;
               </Link>

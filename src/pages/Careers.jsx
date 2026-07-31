@@ -5,6 +5,7 @@ import Container from '../components/Container';
 import Eyebrow from '../components/Eyebrow';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useTiltEffect from '../hooks/useTiltEffect';
+import nexusTeam from '../assets/nexus-team.jpg';
 
 export default function Careers() {
   useScrollReveal();
@@ -21,7 +22,7 @@ export default function Careers() {
       />
 
       <PhotoBand
-        backgroundImage="https://images.unsplash.com/photo-1758873269276-9518d0cb4a0b?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+        backgroundImage={nexusTeam}
         stamp="NX · LIFE AT NEXUS"
         eyebrow="SMALL TEAM, REAL OWNERSHIP"
         heading="We're still small enough that your work is visible."
