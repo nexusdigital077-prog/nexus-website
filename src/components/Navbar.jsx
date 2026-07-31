@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className="fixed top-0 z-[1000] w-full border-b border-white/60 bg-paper/60 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-2.5">
         <NavLink to="/" onClick={closeMenu}>
-          <img src="/logo.png" alt="NEXUS" className="h-[58px] w-auto object-contain" />
+          <img src="/logo.png" alt="NEXUS" className="h-[80px] w-auto object-contain" />
         </NavLink>
 
         <ul
