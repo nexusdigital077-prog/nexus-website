@@ -10,9 +10,9 @@ import useCountUp from '../hooks/useCountUp';
 import useTiltEffect from '../hooks/useTiltEffect';
 
 const team = [
-  { initial: 'S', name: 'Sagar', role: 'Chief Executive Officer', bio: 'Working with Vecare for the past 10 years in IT and Business Development fields.', gradient: 'from-navy to-cyan-500' },
+  { initial: 'S', name: 'Sagar', role: 'Chief Executive Officer', bio: 'Working for the past 10 years in IT and Business Development fields.', gradient: 'from-navy to-cyan-500', photo: '/team-sagar.jpg' },
   { initial: 'K', name: 'Kunal Kurmi', role: 'Chief Operating Officer', bio: 'B.Tech graduate of Thakur College of Engineering and Technology. Experienced with Spectrum, driving OnAssist and VWarranty.', gradient: 'from-[#0f6a8c] to-[#22d3ee]', photo: '/team-kunal.jpg' },
-  { initial: 'K', name: 'Ketan', role: 'Chief Strategy Officer', bio: 'Worked with Onsitego, bringing 8 years of deep expertise in the extended warranty field.', gradient: 'from-[#17325c] to-[#0096c7]' },
+  { initial: 'K', name: 'Ketan', role: 'Chief Strategy Officer', bio: 'Worked with Onsitego, bringing 8 years of deep expertise in the extended warranty field.', gradient: 'from-[#17325c] to-[#0096c7]', photo: '/team-ketan.jpg' },
   { initial: 'A', name: 'Ashish', role: 'Chief Financial Officer / Advisor', bio: 'Our dedicated financial advisor, ensuring robust economic growth and stability.', gradient: 'from-[#0b3d66] to-[#48cae4]', photo: '/team-ashish.jpg' },
   { initial: 'J', name: 'Janak', role: 'Investor', bio: 'Strategic investor backing our vision for the future of IT and EMI security.', gradient: 'from-[#0a0f1e] to-[#22d3ee]' },
 ];
