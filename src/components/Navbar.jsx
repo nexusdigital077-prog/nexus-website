@@ -32,7 +32,7 @@ export default function Navbar() {
 
         <ul
           id="navLinks"
-          className={`fixed top-[74px] right-0 flex w-[min(280px,80vw)] flex-col rounded-bl-2xl border border-white/80 bg-paper-raised shadow-glass-lg backdrop-blur-2xl transition-transform duration-350 ease-[cubic-bezier(0.2,0.8,0.2,1)] md:static md:w-auto md:translate-x-0 md:flex-row md:items-center md:gap-9 md:rounded-none md:border-none md:bg-transparent md:shadow-none md:backdrop-blur-none ${
+          className={`fixed top-[74px] right-0 flex w-[min(280px,80vw)] flex-col rounded-bl-2xl border border-white/80 bg-white shadow-glass-lg backdrop-blur-2xl transition-transform duration-350 ease-[cubic-bezier(0.2,0.8,0.2,1)] md:static md:w-auto md:translate-x-0 md:flex-row md:items-center md:gap-9 md:rounded-none md:border-none md:bg-transparent md:shadow-none md:backdrop-blur-none ${
             isOpen ? 'translate-x-0' : 'translate-x-[110%]'
           }`}
         >
