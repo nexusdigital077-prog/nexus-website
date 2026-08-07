@@ -17,7 +17,21 @@ export default function Footer() {
           <li><Link to="/contact" className="text-sm transition-colors hover:text-cyan-500">Contact</Link></li>
         </ul>
       </Container>
-      <p className="mx-auto mt-5.5 max-w-[1180px] px-6 text-center text-[0.8rem]">&copy; 2026 NEXUS. All rights reserved.</p>
+      <Container className="mt-5.5 flex flex-wrap items-center justify-between gap-3 max-[640px]:flex-col max-[640px]:text-center">
+        <p className="text-[0.8rem]">&copy; 2026 NEXUS. All rights reserved.</p>
+        <ul className="flex flex-wrap gap-5">
+          <li>
+            <Link to="/nexlock/privacy" className="text-[0.78rem] text-slate-400 transition-colors hover:text-cyan-500">
+              NexLock Privacy Policy
+            </Link>
+          </li>
+          <li>
+            <Link to="/nexlock/terms" className="text-[0.78rem] text-slate-400 transition-colors hover:text-cyan-500">
+              NexLock Terms &amp; Conditions
+            </Link>
+          </li>
+        </ul>
+      </Container>
     </footer>
   );
 }
