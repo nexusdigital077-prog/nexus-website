@@ -30,6 +30,16 @@ export default function Footer() {
               NexLock Terms &amp; Conditions
             </Link>
           </li>
+          <li>
+            <Link to="/nexwarrenty/privacy" className="text-[0.78rem] text-slate-400 transition-colors hover:text-cyan-500">
+              Nexwarrenty Privacy Policy
+            </Link>
+          </li>
+          <li>
+            <Link to="/nexwarrenty/terms" className="text-[0.78rem] text-slate-400 transition-colors hover:text-cyan-500">
+              Nexwarrenty Terms &amp; Conditions
+            </Link>
+          </li>
         </ul>
       </Container>
     </footer>

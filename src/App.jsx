@@ -10,6 +10,8 @@ import Contact from './pages/Contact';
 import Collaborate from './pages/Collaborate';
 import NexlockPrivacy from './pages/NexlockPrivacy';
 import NexlockTerms from './pages/NexlockTerms';
+import NexwarrentyPrivacy from './pages/NexwarrentyPrivacy';
+import NexwarrentyTerms from './pages/NexwarrentyTerms';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -42,6 +44,8 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/nexlock/privacy" element={<NexlockPrivacy />} />
         <Route path="/nexlock/terms" element={<NexlockTerms />} />
+        <Route path="/nexwarrenty/privacy" element={<NexwarrentyPrivacy />} />
+        <Route path="/nexwarrenty/terms" element={<NexwarrentyTerms />} />
       </Routes>
       <Footer />
     </BrowserRouter>
