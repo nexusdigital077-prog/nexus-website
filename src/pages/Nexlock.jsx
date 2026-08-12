@@ -26,7 +26,7 @@ const ICONS = {
   arrow:    'M5 12h14M12 5l7 7-7 7',
 };
 
-/* ─── BRAND COLORS (matching NexLock logo: dark navy + electric blue) ── */
+/* ─── BRAND COLORS ────────────────────────────────────────────────────── */
 const C = {
   navy:      '#0c1b33',
   navyMid:   '#1a3260',
@@ -37,7 +37,6 @@ const C = {
   bgSoft:    '#f4f7ff',
   bgAlt:     '#eef2ff',
   border:    'rgba(37,99,235,0.15)',
-  borderNav: 'rgba(12,27,51,0.08)',
   textPri:   '#0c1b33',
   textSec:   '#4b5d78',
   textMute:  '#8896ab',
@@ -87,17 +86,7 @@ const TOOLS = [
   { num: '003/', title: 'ANALYTICS DASHBOARD',   desc: 'Gain portfolio-level insights into repayment rates, risk distribution, and device health trends.',      tags: ['Data', 'Insights', 'Reports'] },
 ];
 
-const EMI_STATS = [
-  { value: '7 Days', label: 'Grace Period' },
-  { value: '24/7',   label: 'Device Monitoring' },
-  { value: '100%',   label: 'Data Encryption' },
-  { value: '&#8377;10L', label: 'EMI Cover*' },
-];
-
 /* ─── SHARED STYLE HELPERS ────────────────────────────────────────────── */
-const sectionPad = { padding: '6rem 2rem' };
-const maxW = { maxWidth: 1200, margin: '0 auto', width: '100%' };
-
 const lightCard = {
   background: '#fff',
   border: `1px solid ${C.border}`,
@@ -119,250 +108,213 @@ export default function Nexlock() {
   useTiltEffect();
 
   return (
-    <div style={{ background: C.bgWhite, color: C.textPri, fontFamily: 'inherit' }}>
+    <div style={{ background: C.bgWhite, color: C.textPri, fontFamily: 'inherit', overflowX: 'hidden', width: '100%' }}>
 
       {/* ── 1. HERO ─────────────────────────────────────────────────── */}
       <section
         id="nexlock-hero"
+        className="relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 lg:py-24 min-h-[85vh] flex items-center"
         style={{
           background: `linear-gradient(145deg, #f0f5ff 0%, #e8f0fe 40%, #f4f7ff 100%)`,
-          minHeight: '92vh',
-          display: 'flex',
-          alignItems: 'center',
-          paddingTop: '6rem',
-          paddingBottom: '5rem',
-          position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        {/* Decorative grid */}
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
+        {/* Decorative background grid */}
+        <div className="absolute inset-0 pointer-events-none opacity-60" style={{
           backgroundImage: `linear-gradient(${C.border} 1px, transparent 1px), linear-gradient(90deg, ${C.border} 1px, transparent 1px)`,
-          backgroundSize: '52px 52px',
-          opacity: 0.6,
+          backgroundSize: '40px 40px',
         }} />
-        {/* Decorative blobs */}
-        <div style={{ position:'absolute', top:'-10%', right:'-5%', width:500, height:500, borderRadius:'50%', background:'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)', pointerEvents:'none' }} />
-        <div style={{ position:'absolute', bottom:'-15%', left:'-8%', width:400, height:400, borderRadius:'50%', background:'radial-gradient(circle, rgba(12,27,51,0.06) 0%, transparent 70%)', pointerEvents:'none' }} />
+        <div className="absolute -top-24 -right-24 w-80 h-80 sm:w-96 sm:h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)' }} />
 
-        <div style={{ ...maxW, padding: '0 2rem', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
-            {/* Left column */}
-            <div>
+            {/* Left Column — Text */}
+            <div className="text-left">
               <p data-reveal data-animate="fade-up" data-delay="0"
-                style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'1.25rem' }}>
+                className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4" style={{ color: C.blue }}>
                 EMI Security Platform
               </p>
               <h1
                 data-reveal data-animate="fade-up" data-delay="80"
-                style={{ fontSize:'clamp(2.4rem, 5vw, 3.6rem)', fontWeight:800, lineHeight:1.1, marginBottom:'1.5rem', letterSpacing:'-0.02em', color:C.navy }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4 sm:mb-6"
+                style={{ color: C.navy }}
               >
                 Smart Device Lock &amp;{' '}
-                <span style={{ background:`linear-gradient(120deg, ${C.blue}, ${C.navyMid})`, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
+                <span style={{ background: `linear-gradient(120deg, ${C.blue}, ${C.navyMid})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   EMI Recovery
                 </span>{' '}
                 Platform
               </h1>
               <p
                 data-reveal data-animate="fade-up" data-delay="160"
-                style={{ fontSize:'1.05rem', color:C.textSec, lineHeight:1.7, marginBottom:'2rem', maxWidth:480 }}
+                className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8 max-w-xl"
               >
                 Recover mobile financing loans and minimise default risks — no field agents, no repossession, no root access required.
               </p>
 
               {/* Chips */}
-              <div data-reveal data-animate="fade-up" data-delay="240" style={{ display:'flex', flexWrap:'wrap', gap:'0.5rem', marginBottom:'2.25rem' }}>
+              <div data-reveal data-animate="fade-up" data-delay="240" className="flex flex-wrap gap-2 mb-6 sm:mb-8">
                 {HERO_CHIPS.map((chip) => (
-                  <span key={chip} style={{
-                    padding:'0.3rem 0.9rem', borderRadius:'9999px',
-                    border:`1px solid ${C.border}`,
-                    background:'rgba(37,99,235,0.06)',
-                    fontSize:'0.78rem', fontWeight:600, color:C.blue,
+                  <span key={chip} className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold" style={{
+                    border: `1px solid ${C.border}`,
+                    background: 'rgba(37,99,235,0.06)',
+                    color: C.blue,
                   }}>{chip}</span>
                 ))}
               </div>
 
               {/* Stats */}
-              <div data-reveal data-animate="fade-up" data-delay="320" style={{ display:'flex', gap:'2.5rem', marginBottom:'2.5rem' }}>
+              <div data-reveal data-animate="fade-up" data-delay="320" className="flex gap-8 mb-8">
                 <div>
-                  <p style={{ fontSize:'2.2rem', fontWeight:800, color:C.blue, lineHeight:1 }}>99%</p>
-                  <p style={{ fontSize:'0.8rem', color:C.textMute, marginTop:'0.3rem' }}>Repayment Success</p>
+                  <p className="text-3xl sm:text-4xl font-extrabold leading-none" style={{ color: C.blue }}>99%</p>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Repayment Success</p>
                 </div>
                 <div>
-                  <p style={{ fontSize:'2.2rem', fontWeight:800, color:C.blue, lineHeight:1 }}>50K+</p>
-                  <p style={{ fontSize:'0.8rem', color:C.textMute, marginTop:'0.3rem' }}>Active Devices</p>
+                  <p className="text-3xl sm:text-4xl font-extrabold leading-none" style={{ color: C.blue }}>50K+</p>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Active Devices</p>
                 </div>
               </div>
 
               {/* CTAs */}
-              <div data-reveal data-animate="fade-up" data-delay="400" style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
+              <div data-reveal data-animate="fade-up" data-delay="400" className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a id="nexlock-get-started" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:-translate-y-0.5"
                   style={{
-                    display:'inline-flex', alignItems:'center', gap:'0.5rem',
-                    padding:'0.85rem 1.9rem',
-                    background:`linear-gradient(135deg, ${C.blue}, ${C.navyMid})`,
-                    color:'#fff', fontSize:'0.85rem', fontWeight:700,
-                    letterSpacing:'0.05em', textTransform:'uppercase',
-                    borderRadius:'0.55rem', textDecoration:'none',
-                    boxShadow:`0 8px 24px rgba(37,99,235,0.3)`,
-                    transition:'transform 0.2s ease, box-shadow 0.2s ease',
+                    background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})`,
+                    boxShadow: `0 8px 24px rgba(37,99,235,0.3)`,
                   }}
-                  onMouseEnter={e=>{ e.currentTarget.style.transform='translateY(-2px)'; e.currentTarget.style.boxShadow='0 12px 32px rgba(37,99,235,0.4)'; }}
-                  onMouseLeave={e=>{ e.currentTarget.style.transform=''; e.currentTarget.style.boxShadow=`0 8px 24px rgba(37,99,235,0.3)`; }}
                 >
                   <Icon path={ICONS.download} size={16} color="#fff" /> Get Started
                 </a>
                 <Link to="/contact" id="nexlock-contact-cta"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider border-2 transition-colors hover:bg-slate-900 hover:text-white"
                   style={{
-                    display:'inline-flex', alignItems:'center', gap:'0.5rem',
-                    padding:'0.82rem 1.75rem',
-                    background:'transparent', color:C.navy,
-                    fontSize:'0.85rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase',
-                    borderRadius:'0.55rem', textDecoration:'none',
-                    border:`1.5px solid ${C.navyMid}`,
-                    transition:'background 0.2s ease, color 0.2s ease',
+                    color: C.navy,
+                    borderColor: C.navyMid,
                   }}
-                  onMouseEnter={e=>{ e.currentTarget.style.background=C.navy; e.currentTarget.style.color='#fff'; }}
-                  onMouseLeave={e=>{ e.currentTarget.style.background='transparent'; e.currentTarget.style.color=C.navy; }}
                 >
                   Become a Partner &#8594;
                 </Link>
               </div>
             </div>
 
-            {/* Right column — NexLock Logo hero visual */}
+            {/* Right Column — Responsive Hero Visual */}
             <div data-reveal data-animate="fade-left" data-delay="200"
-              style={{ display:'flex', justifyContent:'center', alignItems:'center', position:'relative' }}>
-              {/* Decorative ring behind logo */}
-              <div style={{
-                position:'absolute',
-                width:460, height:460,
-                borderRadius:'50%',
-                border:`1px solid rgba(37,99,235,0.15)`,
-                animation:'ring-pulse 4s ease-in-out infinite',
-              }} />
-              <div style={{
-                position:'absolute',
-                width:380, height:380,
-                borderRadius:'50%',
-                border:`1px solid rgba(37,99,235,0.1)`,
-                animation:'ring-pulse 4s ease-in-out infinite 1.5s',
-              }} />
-              {/* Glowing backdrop */}
-              <div style={{
-                width:280, height:280,
-                borderRadius:'50%',
-                background:'radial-gradient(circle, rgba(37,99,235,0.1) 0%, rgba(37,99,235,0.03) 60%, transparent 75%)',
-                display:'flex', alignItems:'center', justifyContent:'center',
-                animation:'logo-float 4s ease-in-out infinite',
-              }}>
-                <img
-                  src="/nexlock-logo.png"
-                  alt="NexLock Logo"
-                  style={{ width:220, height:'auto', objectFit:'contain', filter:'drop-shadow(0 12px 32px rgba(37,99,235,0.25))' }}
-                />
+              className="flex justify-center items-center relative py-6 lg:py-0 w-full overflow-hidden"
+            >
+              {/* Glowing Outer Container */}
+              <div className="relative flex items-center justify-center w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 max-w-full">
+                <div className="absolute inset-0 rounded-full border border-blue-500/20 animate-pulse" />
+                <div className="absolute inset-4 rounded-full border border-blue-500/10" />
+                
+                {/* Center Backdrop with NexLock Logo */}
+                <div className="w-48 h-48 sm:w-60 sm:h-60 rounded-full flex items-center justify-center p-4 bg-gradient-to-br from-blue-500/10 to-indigo-900/5 backdrop-blur-sm shadow-xl">
+                  <img
+                    src="/nexlock-logo.png"
+                    alt="NexLock Logo"
+                    className="w-36 sm:w-44 h-auto object-contain drop-shadow-md"
+                  />
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ── 2. MARQUEE TICKER ───────────────────────────────────────── */}
-      <section id="nexlock-marquee" style={{
+      <section id="nexlock-marquee" className="py-4 overflow-hidden" style={{
         background: C.navy,
-        borderTop:`1px solid rgba(255,255,255,0.06)`,
-        padding:'1.1rem 0', overflow:'hidden',
+        borderTop: `1px solid rgba(255,255,255,0.06)`,
       }}>
         <div className="marquee-track">
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} style={{
-              padding:'0 2.5rem', fontSize:'0.75rem', fontWeight:700,
-              letterSpacing:'0.14em', color:'rgba(255,255,255,0.55)',
-              display:'flex', alignItems:'center', gap:'2.5rem', whiteSpace:'nowrap',
-            }}>
+            <span key={i} className="px-6 sm:px-10 text-xs font-bold tracking-widest text-slate-300 flex items-center gap-6 sm:gap-10 whitespace-nowrap">
               {item}
-              <span style={{ color:C.blueLight, fontSize:'0.6rem' }}>&#9670;</span>
+              <span className="text-blue-400 text-[10px]">&#9670;</span>
             </span>
           ))}
         </div>
       </section>
 
       {/* ── 3. VALUE PROPOSITION ─────────────────────────────────────── */}
-      <section id="nexlock-value" style={{ ...sectionPad, background:C.bgSoft }}>
-        <div style={{ ...maxW, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'4rem', alignItems:'center' }}>
-          <div>
-            <p data-reveal data-animate="fade-right" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'1rem' }}>Why NexLock</p>
-            <h2 data-reveal data-animate="fade-right" data-delay="100"
-              style={{ fontSize:'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight:800, lineHeight:1.2, marginBottom:'1.25rem', color:C.navy }}>
-              Leading EMI Risk<br />
-              <span style={{ background:`linear-gradient(120deg, ${C.blue}, ${C.navyMid})`, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Management Platform</span>
-            </h2>
-            <p data-reveal data-animate="fade-right" data-delay="200"
-              style={{ fontSize:'1rem', color:C.textSec, lineHeight:1.75, marginBottom:'2rem' }}>
-              NexLock gives device finance businesses a powerful, app-level tool to enforce EMI compliance automatically — keeping repayment rates high and default costs low, without any physical intervention.
-            </p>
-            <ul data-reveal data-animate="fade-right" data-delay="300"
-              style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.75rem', marginBottom:'2rem' }}>
-              {['Zero physical intervention or field agents','Works on any Android device without root','Compliant with RBI EMI collection guidelines','Real-time portfolio visibility'].map(item => (
-                <li key={item} style={{ display:'flex', alignItems:'center', gap:'0.65rem', fontSize:'0.9rem', color:C.textSec }}>
-                  <span style={{ color:C.blue, fontWeight:700, flexShrink:0 }}>&#10003;</span> {item}
-                </li>
-              ))}
-            </ul>
-            <div data-reveal data-animate="fade-right" data-delay="400" style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
-              <a href="#nexlock-features" id="nexlock-explore-features"
-                style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', padding:'0.82rem 1.75rem', background:`linear-gradient(135deg, ${C.blue}, ${C.navyMid})`, color:'#fff', fontSize:'0.82rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.55rem', textDecoration:'none', boxShadow:`0 6px 20px rgba(37,99,235,0.25)` }}>
-                <Icon path={ICONS.arrow} size={16} color="#fff" /> Explore Features
-              </a>
-              <Link to="/contact" id="nexlock-partner-cta"
-                style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', padding:'0.82rem 1.75rem', background:'transparent', color:C.navy, fontSize:'0.82rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.55rem', textDecoration:'none', border:`1.5px solid ${C.navyMid}` }}>
-                Become a Partner
-              </Link>
-            </div>
-          </div>
-
-          {/* Stat cards */}
-          <div data-reveal data-animate="fade-left" data-delay="150"
-            style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem' }}>
-            {[
-              { value:'63%', label:'Default reduction in 90 days' },
-              { value:'60s', label:'Device enrollment time' },
-              { value:'ZERO', label:'Field agent cost required' },
-              { value:'99.9%', label:'Platform uptime SLA' },
-            ].map((stat, i) => (
-              <div key={i} data-reveal data-animate="zoom-in" data-delay={String(200 + i * 80)} data-tilt
-                style={{ ...lightCard, padding:'1.75rem 1.5rem', textAlign:'center' }}>
-                <p style={{ fontSize:'2rem', fontWeight:800, color:C.blue, lineHeight:1, marginBottom:'0.5rem' }}>{stat.value}</p>
-                <p style={{ fontSize:'0.78rem', color:C.textMute, lineHeight:1.4 }}>{stat.label}</p>
+      <section id="nexlock-value" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgSoft }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <p data-reveal data-animate="fade-right" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>Why NexLock</p>
+              <h2 data-reveal data-animate="fade-right" data-delay="100"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-4" style={{ color: C.navy }}>
+                Leading EMI Risk<br />
+                <span style={{ background: `linear-gradient(120deg, ${C.blue}, ${C.navyMid})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Management Platform</span>
+              </h2>
+              <p data-reveal data-animate="fade-right" data-delay="200"
+                className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                NexLock gives device finance businesses a powerful, app-level tool to enforce EMI compliance automatically — keeping repayment rates high and default costs low, without any physical intervention.
+              </p>
+              <ul data-reveal data-animate="fade-right" data-delay="300"
+                className="space-y-3 mb-8">
+                {['Zero physical intervention or field agents','Works on any Android device without root','Compliant with RBI EMI collection guidelines','Real-time portfolio visibility'].map(item => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-slate-600">
+                    <span className="text-blue-600 font-bold flex-shrink-0">&#10003;</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <div data-reveal data-animate="fade-right" data-delay="400" className="flex flex-wrap gap-3">
+                <a href="#nexlock-features" id="nexlock-explore-features"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md"
+                  style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})` }}>
+                  <Icon path={ICONS.arrow} size={16} color="#fff" /> Explore Features
+                </a>
+                <Link to="/contact" id="nexlock-partner-cta"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider border-2"
+                  style={{ color: C.navy, borderColor: C.navyMid }}>
+                  Become a Partner
+                </Link>
               </div>
-            ))}
+            </div>
+
+            {/* Stat Cards Grid */}
+            <div data-reveal data-animate="fade-left" data-delay="150"
+              className="grid grid-cols-2 gap-3 sm:gap-4">
+              {[
+                { value:'63%', label:'Default reduction in 90 days' },
+                { value:'60s', label:'Device enrollment time' },
+                { value:'ZERO', label:'Field agent cost required' },
+                { value:'99.9%', label:'Platform uptime SLA' },
+              ].map((stat, i) => (
+                <div key={i} data-reveal data-animate="zoom-in" data-delay={String(200 + i * 80)} data-tilt
+                  style={lightCard} className="p-5 sm:p-6 text-center">
+                  <p className="text-2xl sm:text-3xl font-extrabold mb-1" style={{ color: C.blue }}>{stat.value}</p>
+                  <p className="text-xs text-slate-500 leading-snug">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 4. HOW IT WORKS ──────────────────────────────────────────── */}
-      <section id="nexlock-workflow" style={{ ...sectionPad, background:C.bgWhite }}>
-        <div style={maxW}>
-          <p data-reveal data-animate="fade-up" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'0.75rem' }}>Workflow</p>
+      <section id="nexlock-workflow" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgWhite }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p data-reveal data-animate="fade-up" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>Workflow</p>
           <h2 data-reveal data-animate="fade-up" data-delay="100"
-            style={{ fontSize:'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight:800, marginBottom:'0.75rem', color:C.navy }}>How NexLock Works</h2>
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-3" style={{ color: C.navy }}>How NexLock Works</h2>
           <p data-reveal data-animate="fade-up" data-delay="180"
-            style={{ fontSize:'1rem', color:C.textSec, marginBottom:'3.5rem', maxWidth:520 }}>
+            className="text-sm sm:text-base text-slate-600 mb-10 max-w-xl">
             From installation to repayment, manage every device in one seamless flow.
           </p>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(260px, 1fr))', gap:'1.25rem' }}>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WORKFLOW_STEPS.map((step, i) => (
               <div key={step.num} data-reveal data-animate="zoom-in" data-delay={String(i * 80)} data-tilt
-                style={{ ...lightCard, padding:'2rem 1.75rem', position:'relative', overflow:'hidden' }}>
-                {/* Decorative number */}
-                <span style={{ position:'absolute', top:'1.2rem', right:'1.25rem', fontSize:'0.68rem', fontWeight:800, letterSpacing:'0.12em', color:'rgba(37,99,235,0.2)', fontFamily:'IBM Plex Mono, monospace' }}>{step.num}</span>
-                <div style={{ ...blueIconBox, marginBottom:'1.2rem' }}>
+                style={lightCard} className="p-6 relative overflow-hidden">
+                <span className="absolute top-4 right-4 text-xs font-mono font-extrabold text-blue-500/20">{step.num}</span>
+                <div style={blueIconBox} className="mb-4">
                   <Icon path={step.icon} size={22} color="#fff" />
                 </div>
-                <h3 style={{ fontSize:'1rem', fontWeight:700, marginBottom:'0.5rem', color:C.navy }}>{step.title}</h3>
-                <p style={{ fontSize:'0.85rem', color:C.textSec, lineHeight:1.6 }}>{step.desc}</p>
+                <h3 className="text-base font-bold mb-2" style={{ color: C.navy }}>{step.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -370,31 +322,30 @@ export default function Nexlock() {
       </section>
 
       {/* ── 5. FEATURES GRID ─────────────────────────────────────────── */}
-      <section id="nexlock-features" style={{ ...sectionPad, background:C.bgAlt }}>
-        <div style={maxW}>
-          <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', flexWrap:'wrap', gap:'1.5rem', marginBottom:'3.5rem' }}>
+      <section id="nexlock-features" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgAlt }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
-              <p data-reveal data-animate="fade-up" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'0.75rem' }}>Solutions</p>
+              <p data-reveal data-animate="fade-up" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>Solutions</p>
               <h2 data-reveal data-animate="fade-up" data-delay="100"
-                style={{ fontSize:'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight:800, lineHeight:1.2, color:C.navy }}>Built For Device<br />Financing Businesses</h2>
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight" style={{ color: C.navy }}>Built For Device<br />Financing Businesses</h2>
             </div>
             <div data-reveal data-animate="fade-left" data-delay="200">
               <Link to="/contact" id="nexlock-all-features"
-                style={{ display:'inline-flex', alignItems:'center', padding:'0.82rem 1.75rem', background:`linear-gradient(135deg, ${C.blue}, ${C.navyMid})`, color:'#fff', fontSize:'0.82rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.55rem', textDecoration:'none', boxShadow:`0 6px 20px rgba(37,99,235,0.25)` }}>
+                className="inline-flex items-center px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md"
+                style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})` }}>
                 All Features
               </Link>
             </div>
           </div>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))', gap:'1.1rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {FEATURES.map((feat, i) => (
               <div key={feat.label} data-reveal data-animate="fade-up" data-delay={String(i * 70)} data-tilt
-                style={{ ...lightCard, padding:'1.75rem 1.5rem', display:'flex', flexDirection:'column', gap:'0.85rem', transition:'border-color 0.25s, box-shadow 0.25s, transform 0.25s' }}
-                onMouseEnter={e=>{ e.currentTarget.style.borderColor='rgba(37,99,235,0.4)'; e.currentTarget.style.boxShadow='0 8px 32px rgba(37,99,235,0.15)'; }}
-                onMouseLeave={e=>{ e.currentTarget.style.borderColor=C.border; e.currentTarget.style.boxShadow='0 4px 24px rgba(37,99,235,0.08)'; }}
+                style={lightCard} className="p-5 sm:p-6 flex flex-col gap-3 transition-all hover:border-blue-400 hover:shadow-lg"
               >
                 <div style={blueIconBox}><Icon path={feat.icon} size={20} color="#fff" /></div>
-                <p style={{ fontSize:'0.72rem', fontWeight:800, letterSpacing:'0.12em', color:C.navy, textTransform:'uppercase' }}>{feat.label}</p>
-                <p style={{ fontSize:'0.84rem', color:C.textSec, lineHeight:1.6 }}>{feat.desc}</p>
+                <p className="text-xs font-extrabold tracking-wider uppercase" style={{ color: C.navy }}>{feat.label}</p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{feat.desc}</p>
               </div>
             ))}
           </div>
@@ -402,41 +353,45 @@ export default function Nexlock() {
       </section>
 
       {/* ── 6. ADVANCED PROTECTION ───────────────────────────────────── */}
-      <section id="nexlock-protection" style={{ ...sectionPad, background:C.bgWhite }}>
-        <div style={maxW}>
-          <p data-reveal data-animate="fade-up" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'0.75rem' }}>Advanced Protection</p>
+      <section id="nexlock-protection" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgWhite }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p data-reveal data-animate="fade-up" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>Advanced Protection</p>
           <h2 data-reveal data-animate="fade-up" data-delay="100"
-            style={{ fontSize:'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight:800, marginBottom:'3.5rem', lineHeight:1.2, color:C.navy }}>
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-10 leading-tight" style={{ color: C.navy }}>
             App-Grade EMI<br />Device Protection
           </h2>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'2rem', alignItems:'center' }}>
-            {/* Left */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-center">
+            {/* Left Card */}
             <div data-reveal data-animate="fade-right" data-delay="100"
-              style={{ ...lightCard, padding:'2.5rem 2rem', borderLeft:`4px solid ${C.blue}` }}>
-              <h3 style={{ fontSize:'1.15rem', fontWeight:700, marginBottom:'0.5rem', color:C.navy }}>App-Level Security</h3>
-              <p style={{ fontSize:'0.85rem', color:C.textSec, marginBottom:'1.5rem', lineHeight:1.6 }}>Powerful protection implemented entirely through Android built-in permission system — no rooting, no enterprise enrollment.</p>
-              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.85rem' }}>
+              style={lightCard} className="p-6 sm:p-8 border-l-4 border-l-blue-600">
+              <h3 className="text-lg font-bold mb-2" style={{ color: C.navy }}>App-Level Security</h3>
+              <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">Powerful protection implemented entirely through Android built-in permission system — no rooting, no enterprise enrollment.</p>
+              <ul className="space-y-3">
                 {PROTECTION_LEFT.map(item => (
-                  <li key={item} style={{ display:'flex', gap:'0.65rem', alignItems:'flex-start', fontSize:'0.85rem', color:C.textSec }}>
-                    <span style={{ color:C.blue, marginTop:'0.1rem', flexShrink:0, fontWeight:700 }}>&#9658;</span> {item}
+                  <li key={item} className="flex gap-2.5 items-start text-xs sm:text-sm text-slate-600">
+                    <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">&#9658;</span> {item}
                   </li>
                 ))}
               </ul>
             </div>
-            {/* Centre emblem */}
+
+            {/* Center Logo Emblem */}
             <div data-reveal data-animate="zoom-in" data-delay="200"
-              style={{ width:160, height:160, borderRadius:'50%', background:`linear-gradient(135deg, ${C.blue}22, ${C.navyMid}11)`, border:`2px solid ${C.border}`, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, boxShadow:`0 0 60px rgba(37,99,235,0.15)`, animation:'ring-pulse 4s ease-in-out infinite' }}>
-              <img src="/nexlock-logo.png" alt="NexLock" style={{ width:100, height:'auto', filter:'drop-shadow(0 4px 12px rgba(37,99,235,0.3))' }} />
+              className="flex justify-center my-4 lg:my-0">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-blue-50 border-2 border-blue-200 flex items-center justify-center p-3 shadow-lg">
+                <img src="/nexlock-logo.png" alt="NexLock Emblem" className="w-20 sm:w-24 h-auto object-contain" />
+              </div>
             </div>
-            {/* Right */}
+
+            {/* Right Card */}
             <div data-reveal data-animate="fade-left" data-delay="100"
-              style={{ ...lightCard, padding:'2.5rem 2rem', borderRight:`4px solid ${C.navyMid}` }}>
-              <h3 style={{ fontSize:'1.15rem', fontWeight:700, marginBottom:'0.5rem', color:C.navy }}>Reliable Protection</h3>
-              <p style={{ fontSize:'0.85rem', color:C.textSec, marginBottom:'1.5rem', lineHeight:1.6 }}>Multi-layer safeguards ensure financed devices remain protected against tampering, SIM swaps, and evasion attempts.</p>
-              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'0.85rem' }}>
+              style={lightCard} className="p-6 sm:p-8 border-r-4 border-r-indigo-900">
+              <h3 className="text-lg font-bold mb-2" style={{ color: C.navy }}>Reliable Protection</h3>
+              <p className="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">Multi-layer safeguards ensure financed devices remain protected against tampering, SIM swaps, and evasion attempts.</p>
+              <ul className="space-y-3">
                 {PROTECTION_RIGHT.map(item => (
-                  <li key={item} style={{ display:'flex', gap:'0.65rem', alignItems:'flex-start', fontSize:'0.85rem', color:C.textSec }}>
-                    <span style={{ color:C.navyMid, marginTop:'0.1rem', flexShrink:0, fontWeight:700 }}>&#9658;</span> {item}
+                  <li key={item} className="flex gap-2.5 items-start text-xs sm:text-sm text-slate-600">
+                    <span className="text-indigo-900 font-bold mt-0.5 flex-shrink-0">&#9658;</span> {item}
                   </li>
                 ))}
               </ul>
@@ -446,23 +401,25 @@ export default function Nexlock() {
       </section>
 
       {/* ── 7. INTELLIGENT TOOLS ─────────────────────────────────────── */}
-      <section id="nexlock-tools" style={{ ...sectionPad, background:C.bgSoft }}>
-        <div style={maxW}>
-          <p data-reveal data-animate="fade-up" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'0.75rem' }}>Platform Capabilities</p>
+      <section id="nexlock-tools" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgSoft }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p data-reveal data-animate="fade-up" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>Platform Capabilities</p>
           <h2 data-reveal data-animate="fade-up" data-delay="100"
-            style={{ fontSize:'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight:800, marginBottom:'3.5rem', color:C.navy }}>Intelligent EMI Tools</h2>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(300px, 1fr))', gap:'1.5rem' }}>
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-10" style={{ color: C.navy }}>Intelligent EMI Tools</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TOOLS.map((tool, i) => (
               <div key={tool.num} data-reveal data-animate="fade-up" data-delay={String(i * 100)} data-tilt
-                style={{ ...lightCard, padding:'2.25rem 2rem', position:'relative', overflow:'hidden' }}>
-                {/* Blue top accent bar */}
-                <div style={{ position:'absolute', top:0, left:0, right:0, height:4, background:`linear-gradient(90deg, ${C.blue}, ${C.navyMid})`, borderRadius:'1rem 1rem 0 0' }} />
-                <p style={{ fontSize:'2.2rem', fontWeight:800, color:C.blue, fontFamily:'IBM Plex Mono, monospace', marginBottom:'1rem', lineHeight:1 }}>{tool.num}</p>
-                <p style={{ fontSize:'0.72rem', fontWeight:800, letterSpacing:'0.14em', color:C.navy, marginBottom:'0.75rem' }}>{tool.title}</p>
-                <p style={{ fontSize:'0.88rem', color:C.textSec, lineHeight:1.65, marginBottom:'1.5rem' }}>{tool.desc}</p>
-                <div style={{ display:'flex', gap:'0.5rem', flexWrap:'wrap' }}>
+                style={lightCard} className="p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-900" />
+                <div>
+                  <p className="text-3xl font-extrabold font-mono mb-3" style={{ color: C.blue }}>{tool.num}</p>
+                  <p className="text-xs font-extrabold tracking-widest mb-3 uppercase" style={{ color: C.navy }}>{tool.title}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">{tool.desc}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-2">
                   {tool.tags.map(tag => (
-                    <span key={tag} style={{ padding:'0.2rem 0.75rem', borderRadius:'9999px', border:`1px solid ${C.border}`, background:'rgba(37,99,235,0.05)', fontSize:'0.72rem', fontWeight:700, color:C.blue, letterSpacing:'0.04em' }}>{tag}</span>
+                    <span key={tag} className="px-2.5 py-1 rounded-full border border-blue-200 bg-blue-50/50 text-xs font-semibold text-blue-600">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -472,64 +429,63 @@ export default function Nexlock() {
       </section>
 
       {/* ── 8. EMI OVERDUE ───────────────────────────────────────────── */}
-      <section id="nexlock-emi" style={{ ...sectionPad, background:C.bgWhite }}>
-        <div style={{ ...maxW, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'4rem', alignItems:'center' }}>
-          <div>
-            <p data-reveal data-animate="fade-right" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blue, marginBottom:'0.75rem' }}>EMI Protection</p>
-            <h2 data-reveal data-animate="fade-right" data-delay="100"
-              style={{ fontSize:'clamp(1.6rem, 3vw, 2.4rem)', fontWeight:800, lineHeight:1.25, marginBottom:'2rem', color:C.navy }}>
-              What Happens When<br />You Miss An EMI?
-            </h2>
-            <div data-reveal data-animate="fade-right" data-delay="200"
-              style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1rem', marginBottom:'2.5rem' }}>
-              {[
-                { value:'7 Days', label:'Grace Period' },
-                { value:'24/7',   label:'Device Monitoring' },
-                { value:'100%',   label:'Data Encryption' },
-                { value:'&#8377;10L', label:'EMI Cover*' },
-              ].map((s, i) => (
-                <div key={s.label} data-reveal data-animate="zoom-in" data-delay={String(200 + i * 80)}
-                  style={{ ...lightCard, padding:'1.5rem', textAlign:'center' }}>
-                  <p style={{ fontSize:'1.75rem', fontWeight:800, color:C.navy, marginBottom:'0.35rem' }} dangerouslySetInnerHTML={{__html: s.value}} />
-                  <p style={{ fontSize:'0.75rem', color:C.textMute, letterSpacing:'0.04em' }}>{s.label}</p>
-                </div>
-              ))}
-            </div>
-            <div data-reveal data-animate="fade-right" data-delay="500" style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
-              <Link to="/contact" id="nexlock-learn-more"
-                style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', padding:'0.82rem 1.75rem', background:'transparent', color:C.navy, fontSize:'0.82rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.55rem', textDecoration:'none', border:`1.5px solid ${C.navyMid}` }}>
-                <Icon path={ICONS.shield} size={16} color={C.navy} /> Learn More
-              </Link>
-              <Link to="/contact" id="nexlock-become-partner"
-                style={{ display:'inline-flex', alignItems:'center', padding:'0.82rem 1.75rem', background:`linear-gradient(135deg, ${C.blue}, ${C.navyMid})`, color:'#fff', fontSize:'0.82rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.55rem', textDecoration:'none', boxShadow:`0 6px 20px rgba(37,99,235,0.25)` }}>
-                Become Partner
-              </Link>
-            </div>
-          </div>
+      <section id="nexlock-emi" className="py-16 sm:py-20 lg:py-24" style={{ background: C.bgWhite }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <p data-reveal data-animate="fade-right" className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-2" style={{ color: C.blue }}>EMI Protection</p>
+              <h2 data-reveal data-animate="fade-right" data-delay="100"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-6" style={{ color: C.navy }}>
+                What Happens When<br />You Miss An EMI?
+              </h2>
+              
+              <div data-reveal data-animate="fade-right" data-delay="200"
+                className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
+                {[
+                  { value:'7 Days', label:'Grace Period' },
+                  { value:'24/7',   label:'Device Monitoring' },
+                  { value:'100%',   label:'Data Encryption' },
+                  { value:'&#8377;10L', label:'EMI Cover*' },
+                ].map((s, i) => (
+                  <div key={s.label} data-reveal data-animate="zoom-in" data-delay={String(200 + i * 80)}
+                    style={lightCard} className="p-4 sm:p-5 text-center">
+                    <p className="text-xl sm:text-2xl font-extrabold mb-1" style={{ color: C.navy }} dangerouslySetInnerHTML={{__html: s.value}} />
+                    <p className="text-xs text-slate-500">{s.label}</p>
+                  </div>
+                ))}
+              </div>
 
-          {/* Auto-lock visual */}
-          <div data-reveal data-animate="fade-left" data-delay="200"
-            style={{
-              background:`linear-gradient(145deg, ${C.bgAlt}, #dce8ff)`,
-              border:`1.5px solid ${C.border}`,
-              borderRadius:'1.5rem',
-              padding:'3rem 2rem',
-              display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
-              minHeight:340, textAlign:'center',
-              boxShadow:`0 12px 48px rgba(37,99,235,0.12)`,
-            }}>
-            <div style={{ width:120, height:120, borderRadius:'50%', background:`linear-gradient(135deg, ${C.blue}33, ${C.navyMid}22)`, border:`2px solid ${C.border}`, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'1.5rem', boxShadow:`0 8px 32px rgba(37,99,235,0.2)` }}>
-              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke={C.navy} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
+              <div data-reveal data-animate="fade-right" data-delay="500" className="flex flex-wrap gap-3">
+                <Link to="/contact" id="nexlock-learn-more"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider border-2"
+                  style={{ color: C.navy, borderColor: C.navyMid }}>
+                  <Icon path={ICONS.shield} size={16} color={C.navy} /> Learn More
+                </Link>
+                <Link to="/contact" id="nexlock-become-partner"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md"
+                  style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})` }}>
+                  Become Partner
+                </Link>
+              </div>
             </div>
-            <h3 style={{ fontSize:'1.3rem', fontWeight:700, marginBottom:'0.75rem', color:C.navy }}>Auto-Lock Activated</h3>
-            <p style={{ fontSize:'0.88rem', color:C.textSec, lineHeight:1.65, maxWidth:280 }}>
-              The device displays a payment reminder screen. Core functions are restricted until the overdue EMI is cleared.
-            </p>
-            <div style={{ marginTop:'1.5rem', padding:'0.6rem 1.5rem', borderRadius:'9999px', background:'rgba(239,68,68,0.08)', border:'1px solid rgba(239,68,68,0.25)', fontSize:'0.78rem', fontWeight:700, color:'#dc2626', letterSpacing:'0.08em' }}>
-              PAYMENT OVERDUE &#8212; DEVICE RESTRICTED
+
+            {/* Auto-Lock Visual Card */}
+            <div data-reveal data-animate="fade-left" data-delay="200"
+              className="bg-gradient-to-br from-indigo-50 to-blue-100/70 border border-blue-200 rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center shadow-lg min-h-[300px]"
+            >
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-blue-600/10 border-2 border-blue-300 flex items-center justify-center mb-5 shadow-inner">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={C.navy} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: C.navy }}>Auto-Lock Activated</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs mb-5">
+                The device displays a payment reminder screen. Core functions are restricted until the overdue EMI is cleared.
+              </p>
+              <div className="px-4 py-2 rounded-full bg-red-100 border border-red-300 text-xs font-bold text-red-600 tracking-wider">
+                PAYMENT OVERDUE &#8212; DEVICE RESTRICTED
+              </div>
             </div>
           </div>
         </div>
@@ -537,56 +493,49 @@ export default function Nexlock() {
 
       {/* ── 9. DOWNLOAD CTA ──────────────────────────────────────────── */}
       <section id="nexlock-download"
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden"
         style={{
-          background:`linear-gradient(135deg, ${C.navy} 0%, ${C.navyMid} 50%, #1e3a8a 100%)`,
-          padding:'8rem 2rem', textAlign:'center', position:'relative', overflow:'hidden',
+          background: `linear-gradient(135deg, ${C.navy} 0%, ${C.navyMid} 50%, #1e3a8a 100%)`,
         }}>
-        {/* Decorative circles */}
-        <div style={{ position:'absolute', top:'-20%', right:'-10%', width:500, height:500, borderRadius:'50%', border:'1px solid rgba(255,255,255,0.05)', pointerEvents:'none' }} />
-        <div style={{ position:'absolute', bottom:'-30%', left:'-5%', width:400, height:400, borderRadius:'50%', border:'1px solid rgba(255,255,255,0.04)', pointerEvents:'none' }} />
-        <div style={{ position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize:'52px 52px', pointerEvents:'none' }} />
-
-        <div style={{ ...maxW, position:'relative', zIndex:1 }}>
-          {/* NexLock logo in CTA */}
-          <div data-reveal data-animate="zoom-in"
-            style={{ display:'flex', justifyContent:'center', marginBottom:'2rem' }}>
-            <div style={{ background:'rgba(255,255,255,0.95)', borderRadius:'1.25rem', padding:'0.85rem 1.5rem', display:'inline-flex', alignItems:'center', justifyContent:'center', boxShadow:'0 4px 24px rgba(0,0,0,0.25)' }}>
-              <img src="/nexlock-logo.png" alt="NexLock"
-                style={{ width:120, height:'auto' }} />
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Logo container */}
+          <div data-reveal data-animate="zoom-in" className="flex justify-center mb-6">
+            <div className="bg-white/95 rounded-2xl px-5 py-3 inline-flex items-center justify-center shadow-lg">
+              <img src="/nexlock-logo.png" alt="NexLock" className="w-28 sm:w-36 h-auto object-contain" />
             </div>
           </div>
-          <p data-reveal data-animate="fade-up" style={{ fontSize:'0.72rem', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', color:C.blueLight, marginBottom:'1rem' }}>Get Started Today</p>
+          
+          <p data-reveal data-animate="fade-up" className="text-xs sm:text-sm font-bold tracking-widest uppercase text-blue-300 mb-3">Get Started Today</p>
           <h2 data-reveal data-animate="zoom-in" data-delay="100"
-            style={{ fontSize:'clamp(2rem, 5vw, 3.5rem)', fontWeight:900, lineHeight:1.1, marginBottom:'1.25rem', color:'#fff' }}>
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
             Download NexLock Today
           </h2>
           <p data-reveal data-animate="fade-up" data-delay="200"
-            style={{ fontSize:'1rem', color:'rgba(255,255,255,0.6)', marginBottom:'2.5rem', maxWidth:480, margin:'0 auto 2.5rem' }}>
+            className="text-sm sm:text-base text-slate-300 mb-8 max-w-md mx-auto">
             Join 50,000+ users who manage their device EMIs smarter.
           </p>
+
           <div data-reveal data-animate="zoom-in" data-delay="300"
-            style={{ display:'flex', gap:'1.25rem', justifyContent:'center', flexWrap:'wrap' }}>
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a id="nexlock-google-play" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"
-              style={{ display:'inline-flex', alignItems:'center', gap:'0.65rem', padding:'1rem 2.25rem', background:C.blue, color:'#fff', fontSize:'0.9rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.6rem', textDecoration:'none', boxShadow:`0 8px 24px rgba(37,99,235,0.5)`, transition:'transform 0.2s' }}
-              onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-2px)';}}
-              onMouseLeave={e=>{e.currentTarget.style.transform='';}}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:-translate-y-0.5 transition-transform"
+              style={{ background: C.blue }}
             >
               <Icon path={ICONS.play} size={18} color="#fff" /> Google Play
             </a>
             <a id="nexlock-app-store" href="https://apps.apple.com" target="_blank" rel="noopener noreferrer"
-              style={{ display:'inline-flex', alignItems:'center', gap:'0.65rem', padding:'1rem 2.25rem', background:'rgba(255,255,255,0.1)', color:'#fff', fontSize:'0.9rem', fontWeight:700, letterSpacing:'0.05em', textTransform:'uppercase', borderRadius:'0.6rem', textDecoration:'none', border:'1.5px solid rgba(255,255,255,0.25)', transition:'background 0.2s' }}
-              onMouseEnter={e=>{e.currentTarget.style.background='rgba(255,255,255,0.18)';}}
-              onMouseLeave={e=>{e.currentTarget.style.background='rgba(255,255,255,0.1)';}}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider text-white border border-white/30 bg-white/10 hover:bg-white/20 transition-colors"
             >
               &#8853; App Store
             </a>
           </div>
+
           <p data-reveal data-animate="fade-up" data-delay="450"
-            style={{ marginTop:'2.5rem', fontSize:'0.72rem', color:'rgba(255,255,255,0.3)', lineHeight:1.6 }}>
+            className="mt-8 text-[11px] sm:text-xs text-slate-400 leading-relaxed">
             *&#8377;10L EMI Cover subject to terms and conditions. NexLock operates under Android standard permission framework.{' '}
-            <Link to="/nexlock/privacy" style={{ color:'rgba(147,197,253,0.7)', textDecoration:'underline' }}>Privacy Policy</Link>
+            <Link to="/nexlock/privacy" className="text-blue-300 underline hover:text-blue-200">Privacy Policy</Link>
             {' · '}
-            <Link to="/nexlock/terms" style={{ color:'rgba(147,197,253,0.7)', textDecoration:'underline' }}>Terms of Service</Link>
+            <Link to="/nexlock/terms" className="text-blue-300 underline hover:text-blue-200">Terms of Service</Link>
           </p>
         </div>
       </section>
