@@ -18,7 +18,11 @@ export default function Footer() {
         </ul>
       </Container>
       <Container className="mt-5.5 flex flex-wrap items-center justify-between gap-3 max-[640px]:flex-col max-[640px]:text-center">
-        <p className="text-[0.8rem]">&copy; 2026 NEXUS. All rights reserved.</p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[0.8rem]">
+          <p>&copy; 2026 NEXUS. All rights reserved.</p>
+          <span className="hidden sm:inline text-slate-500">|</span>
+          <p className="font-mono text-slate-400">GSTIN: 27ABAFN2902R1ZZ</p>
+        </div>
         <ul className="flex flex-wrap gap-5">
           <li>
             <Link to="/nexlock/privacy" className="text-[0.78rem] text-slate-400 transition-colors hover:text-cyan-500">

@@ -66,6 +66,17 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <span className="text-2xl">🧾</span>
+                <div>
+                  <strong>GSTIN</strong>
+                  <br />
+                  <span className="font-mono text-sm font-semibold text-navy">
+                    27ABAFN2902R1ZZ
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div data-reveal className="h-full min-h-[300px] translate-y-6 overflow-hidden rounded-2xl opacity-0 shadow-glass transition-all delay-150 duration-500 ease-out data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 md:min-h-[400px]">
