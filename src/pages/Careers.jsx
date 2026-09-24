@@ -17,7 +17,7 @@ export default function Careers() {
         compact={true}
         eyebrow="JOIN US"
         title={<><span className="text-gradient-brand">Careers</span> at Nexus</>}
-        lede="Help us build the future of extended warranties and EMI security."
+        lede="Build software for our clients and the products we run ourselves — NexLock and NexWarranty."
         style={{ minHeight: '40vh', paddingTop: '120px', paddingBottom: '2rem' }}
       />
 
@@ -26,7 +26,7 @@ export default function Careers() {
         stamp="NX · LIFE AT NEXUS"
         eyebrow="SMALL TEAM, REAL OWNERSHIP"
         heading="We're still small enough that your work is visible."
-        description="Every hire sits close to the product — sales, engineering and analytics all work off the same claims data."
+        description="Every hire sits close to the work — client projects and our own products are built by the same team."
         style={{ minHeight: '38vh' }}
       />
 
@@ -40,7 +40,7 @@ export default function Careers() {
             <CertCard
               icon="🤝"
               title="Sales on Ground"
-              description="We are looking for energetic ground sales executives to expand our market reach and onboard new retail partners for Nexwarrenty and Nexlock products."
+              description="We are looking for energetic ground sales executives to expand our market reach and onboard new retail partners for NexWarranty and NexLock."
               code="NX-JOB-01"
               actionLabel="Apply Now"
               actionTo="/contact"
@@ -48,7 +48,7 @@ export default function Careers() {
             <CertCard
               icon="💻"
               title="Software Developer"
-              description="Join our engineering team to build and maintain the core infrastructure that powers Nexlock's security protocols and our CRM platforms."
+              description="Join our engineering team to build client software through Nexus IT Solutions, and the platforms behind NexLock and our CRM systems."
               code="NX-JOB-02"
               actionLabel="Apply Now"
               actionTo="/contact"

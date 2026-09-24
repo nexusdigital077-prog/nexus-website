@@ -84,6 +84,7 @@ export default function HeroSection({
   ctaButtons = [],
   stats = [],
   showSeal = false,
+  aside = null,
   style = {},
   children,
 }) {
@@ -93,7 +94,7 @@ export default function HeroSection({
       style={style}
       id="home"
     >
-      {showSeal && (
+      {(showSeal || aside) && (
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           <div className="absolute -top-50 -left-50 h-150 w-150 animate-drift rounded-full bg-cyan-500 opacity-25 mix-blend-multiply blur-[120px]" />
           <div className="absolute -right-25 -bottom-25 h-125 w-125 animate-drift rounded-full bg-pink-500 opacity-25 mix-blend-multiply blur-[120px] [animation-delay:-6s]" />
@@ -184,6 +185,12 @@ export default function HeroSection({
         {showSeal && (
           <div className="relative z-10 flex justify-center" aria-hidden="true">
             <SealSVG />
+          </div>
+        )}
+
+        {aside && (
+          <div className="relative z-10 flex translate-y-6 justify-center opacity-0 animate-fade-up [animation-delay:300ms]">
+            {aside}
           </div>
         )}
       </Container>

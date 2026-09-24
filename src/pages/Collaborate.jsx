@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import PhotoBand from '../components/PhotoBand';
 import Container from '../components/Container';
@@ -7,16 +8,27 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import useTiltEffect from '../hooks/useTiltEffect';
 
 const partnershipTypes = [
-  'Extended Warranty Retail Partner',
-  'EMI Security & Device Lock Integration',
+  'IT Solutions — New Website, App or Software Project',
+  'IT Solutions — Existing Software / CRM Maintenance',
+  'NexLock — EMI Security & Device Lock Integration',
+  'NexWarranty — Extended Warranty Retail Partner',
   'Corporate IT Hardware & Infrastructure',
   'Brand / Manufacturer Alliance',
   'Other Corporate Collaboration',
 ];
 
+// ?type=… lets pages across the site open this form pre-set to the right enquiry.
+const typeFromParam = {
+  'it-new': partnershipTypes[0],
+  'it-existing': partnershipTypes[1],
+  nexlock: partnershipTypes[2],
+  nexwarranty: partnershipTypes[3],
+};
+
 export default function Collaborate() {
   useScrollReveal();
   useTiltEffect();
+  const [searchParams] = useSearchParams();
 
   const [formData, setFormData] = useState({
     companyName: '',
@@ -24,11 +36,19 @@ export default function Collaborate() {
     designation: '',
     email: '',
     phone: '',
-    partnershipType: partnershipTypes[0],
+    partnershipType: typeFromParam[searchParams.get('type')] || partnershipTypes[0],
     message: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  // Follow ?type= when a link elsewhere re-targets this already-open page.
+  const typeParam = searchParams.get('type');
+  useEffect(() => {
+    if (typeFromParam[typeParam]) {
+      setFormData((prev) => ({ ...prev, partnershipType: typeFromParam[typeParam] }));
+    }
+  }, [typeParam]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +78,7 @@ export default function Collaborate() {
         compact={true}
         eyebrow="B2B & CORPORATE ALLIANCES"
         title={<><span className="text-gradient-brand">Partner & Collaborate</span> With Nexus</>}
-        lede="Empower your business with India's leading warranty, EMI security, and IT solutions provider. Let's grow together."
+        lede="Work with Nexus on a software project, bring NexLock to your device-finance business, or offer NexWarranty to your customers."
         style={{ minHeight: '42vh', paddingTop: '120px', paddingBottom: '2.5rem' }}
       />
 
@@ -66,7 +86,7 @@ export default function Collaborate() {
         backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=jpg&q=80&w=1800&auto=format&fit=crop"
         stamp="NX · PARTNERSHIPS"
         eyebrow="GROW WITH US"
-        heading="Unlocking new revenue streams for retailers, OEMs, and corporate partners."
+        heading="Software for businesses. Products for retailers, lenders and OEMs."
         style={{ minHeight: '34vh' }}
       />
 
@@ -74,31 +94,31 @@ export default function Collaborate() {
         <Container>
           <div className="mb-14 text-center">
             <Eyebrow>WHY PARTNER WITH NEXUS?</Eyebrow>
-            <h2 className="mt-2 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">Enterprise Solutions Built For Scale</h2>
+            <h2 className="mt-2 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">Ways to work with Nexus</h2>
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div data-reveal data-tilt className="glass-panel translate-y-6 rounded-2xl p-7 opacity-0 shadow-glass transition-all duration-500 ease-out hover:-translate-y-1.5 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100">
               <div className="mb-4 text-3xl">🛡️</div>
-              <h4 className="mb-2 text-lg text-navy">Warranty Integration</h4>
+              <h4 className="mb-2 text-lg text-navy">NexWarranty for Retailers</h4>
               <p className="text-[0.88rem] leading-relaxed text-slate-600">
-                Offer seamless extended warranty and damage protection directly at your checkout or retail counter.
+                Offer NexWarranty extended warranty plans directly at your checkout or retail counter.
               </p>
             </div>
 
             <div data-reveal data-tilt className="glass-panel translate-y-6 rounded-2xl p-7 opacity-0 shadow-glass transition-all delay-100 duration-500 ease-out hover:-translate-y-1.5 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100">
               <div className="mb-4 text-3xl">🔒</div>
-              <h4 className="mb-2 text-lg text-navy">Nexlock Security</h4>
+              <h4 className="mb-2 text-lg text-navy">NexLock for Lenders</h4>
               <p className="text-[0.88rem] leading-relaxed text-slate-600">
-                Protect EMI payments and finance risk with hardware-level remote device locking for retailers and lenders.
+                Protect EMI payments and finance risk with NexLock remote device locking for retailers and lenders.
               </p>
             </div>
 
             <div data-reveal data-tilt className="glass-panel translate-y-6 rounded-2xl p-7 opacity-0 shadow-glass transition-all delay-200 duration-500 ease-out hover:-translate-y-1.5 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100">
-              <div className="mb-4 text-3xl">💼</div>
-              <h4 className="mb-2 text-lg text-navy">Corporate IT Services</h4>
+              <div className="mb-4 text-3xl">💻</div>
+              <h4 className="mb-2 text-lg text-navy">Nexus IT Solutions</h4>
               <p className="text-[0.88rem] leading-relaxed text-slate-600">
-                End-to-end device procurement, bulk hardware maintenance, and enterprise IT infrastructure management.
+                Websites, apps, custom software and CRMs — built new, or maintained and modernized when they already exist.
               </p>
             </div>
 
@@ -253,7 +273,7 @@ export default function Collaborate() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your business, expected order volume, or collaboration goals..."
+                    placeholder="Tell us about your business and what you need — a new project, the software you already have, expected volumes, or collaboration goals..."
                     className="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-navy focus:bg-white focus:ring-2 focus:ring-navy/10"
                   ></textarea>
                 </div>

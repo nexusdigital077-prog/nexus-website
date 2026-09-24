@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useTiltEffect from '../hooks/useTiltEffect';
+import { PillarBadge } from '../components/PillarMarks';
 
 /* ─── INLINE SVG ICON HELPER ─────────────────────────────────────────── */
 const Icon = ({ path, size = 22, color = 'currentColor' }) => (
@@ -113,7 +114,7 @@ export default function Nexlock() {
       {/* ── 1. HERO ─────────────────────────────────────────────────── */}
       <section
         id="nexlock-hero"
-        className="relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 lg:py-24 min-h-[85vh] flex items-center"
+        className="relative overflow-hidden pt-32 pb-12 sm:pt-36 sm:pb-16 lg:pt-36 lg:pb-24 min-h-[85vh] flex items-center"
         style={{
           background: `linear-gradient(145deg, #f0f5ff 0%, #e8f0fe 40%, #f4f7ff 100%)`,
         }}
@@ -130,6 +131,9 @@ export default function Nexlock() {
 
             {/* Left Column — Text */}
             <div className="text-left">
+              <div data-reveal data-animate="fade-up" data-delay="0" className="mb-5">
+                <PillarBadge kind="product" />
+              </div>
               <p data-reveal data-animate="fade-up" data-delay="0"
                 className="text-xs sm:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4" style={{ color: C.blue }}>
                 EMI Security Platform
@@ -186,7 +190,7 @@ export default function Nexlock() {
                 >
                   <Icon path={ICONS.download} size={16} color="#fff" /> Get Started
                 </a>
-                <Link to="/contact" id="nexlock-contact-cta"
+                <Link to="/collaborate?type=nexlock" id="nexlock-contact-cta"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider border-2 transition-colors hover:bg-slate-900 hover:text-white"
                   style={{
                     color: C.navy,
@@ -266,7 +270,7 @@ export default function Nexlock() {
                   style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})` }}>
                   <Icon path={ICONS.arrow} size={16} color="#fff" /> Explore Features
                 </a>
-                <Link to="/contact" id="nexlock-partner-cta"
+                <Link to="/collaborate?type=nexlock" id="nexlock-partner-cta"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider border-2"
                   style={{ color: C.navy, borderColor: C.navyMid }}>
                   Become a Partner
@@ -461,7 +465,7 @@ export default function Nexlock() {
                   style={{ color: C.navy, borderColor: C.navyMid }}>
                   <Icon path={ICONS.shield} size={16} color={C.navy} /> Learn More
                 </Link>
-                <Link to="/contact" id="nexlock-become-partner"
+                <Link to="/collaborate?type=nexlock" id="nexlock-become-partner"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md"
                   style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.navyMid})` }}>
                   Become Partner
