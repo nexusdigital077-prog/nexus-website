@@ -3,6 +3,7 @@ import Container from './Container';
 import { PILLARS } from '../data/pillars';
 
 const company = [
+  { to: '/about', label: 'About & leadership' },
   { to: '/careers', label: 'Careers' },
   { to: '/collaborate', label: 'Collaborate' },
   { to: '/contact', label: 'Contact' },

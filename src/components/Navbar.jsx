@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // The three pillars sit side by side with equal weight; the dot carries each
-// pillar's accent colour.
+// pillar's accent colour. The logo links home.
 const navItems = [
-  { to: '/', label: 'Home', end: true },
   { to: '/it-solutions', label: 'IT Solutions', dot: 'bg-cyan-500' },
   { to: '/nexlock', label: 'NexLock', dot: 'bg-blue-600' },
   { to: '/nexwarrenty', label: 'NexWarranty', dot: 'bg-teal-500' },
+  { to: '/about', label: 'About' },
   { to: '/careers', label: 'Careers' },
   { to: '/collaborate', label: 'Collaborate' },
   { to: '/contact', label: 'Contact' },
