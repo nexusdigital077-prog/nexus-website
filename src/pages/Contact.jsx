@@ -14,7 +14,7 @@ export default function Contact() {
         compact={true}
         eyebrow="GET IN TOUCH"
         title={<><span className="text-gradient-brand">Contact</span> Us</>}
-        lede="We're here to help with your warranty and IT solution needs."
+        lede="Software projects, NexLock and NexWarranty enquiries, or support — talk to the Nexus team."
         style={{ minHeight: '40vh', paddingTop: '120px', paddingBottom: '2rem' }}
       />
 

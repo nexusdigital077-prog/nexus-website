@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import HeroSection from '../components/HeroSection';
+import { Link } from 'react-router-dom';
 import PhotoBand from '../components/PhotoBand';
 import Container from '../components/Container';
 import Eyebrow from '../components/Eyebrow';
+import { PillarBadge, PillarIcon, Wordmark } from '../components/PillarMarks';
+import { NexWarrantyCertificateVisual } from '../components/PillarVisuals';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useTiltEffect from '../hooks/useTiltEffect';
 
@@ -60,16 +62,68 @@ export default function Nexwarrenty() {
 
   return (
     <>
-      <HeroSection
-        compact={true}
-        eyebrow="NX–WRT–01"
-        title={<>Nexus <span className="text-gradient-brand">Extended Warranty</span></>}
-        lede={<>Securing connectivity, ensuring trust — coverage up to <strong>₹20 lakhs</strong> of device purchase price.</>}
-      />
+      {/* ── PRODUCT HERO ─────────────────────────────────────────── */}
+      <header className="relative overflow-hidden pt-[150px] pb-24">
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute -top-40 -right-30 h-130 w-130 animate-drift rounded-full bg-teal-400 opacity-20 mix-blend-multiply blur-[120px]" />
+          <div className="absolute bottom-0 -left-30 h-110 w-110 animate-drift rounded-full bg-cyan-500 opacity-15 mix-blend-multiply blur-[130px] [animation-delay:-6s]" />
+        </div>
+        <Container className="relative z-10 grid items-center gap-16 min-[960px]:grid-cols-[1.05fr_0.95fr]">
+          <div className="translate-y-6 opacity-0 animate-fade-up">
+            <PillarBadge kind="product" className="mb-6" />
+            <div className="mb-5 flex items-center gap-4">
+              <PillarIcon id="nexwarranty" />
+              <Wordmark id="nexwarranty" className="text-[clamp(1.5rem,2.8vw,2rem)]" />
+            </div>
+            <h1 className="mb-5 text-[clamp(2.1rem,3.7vw,3.3rem)] leading-[1.08]">
+              Extended warranty for the appliances you <span className="bg-linear-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">rely on every day.</span>
+            </h1>
+            <p className="mb-8 max-w-[50ch] text-[clamp(1.02rem,1.5vw,1.18rem)] text-slate-600">
+              NexWarranty picks up where the brand warranty ends — 100% of parts and labour, zero depreciation and doorstep pickup and drop, for devices worth up to <strong className="text-navy">₹20 lakh</strong>.
+            </p>
+            <ul className="mb-9 flex flex-wrap gap-2">
+              {['1–4 year plans', 'Priced as % of device value', 'Zero depreciation', 'Brand-authorized repairs'].map((chip) => (
+                <li key={chip} className="rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1.5 text-[0.8rem] font-semibold text-teal-800">{chip}</li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#calculator"
+                className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-[#092147] to-teal-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_8px_20px_rgba(9,33,71,0.2)] transition hover:-translate-y-0.5"
+              >
+                Calculate your plan price &rarr;
+              </a>
+              <Link
+                to="/collaborate?type=nexwarranty"
+                className="inline-flex items-center gap-2 rounded-lg border border-navy/20 bg-white/60 px-7 py-3.5 text-base font-semibold text-navy transition hover:border-navy"
+              >
+                Offer NexWarranty in your store
+              </Link>
+            </div>
+          </div>
+          <div className="flex translate-y-6 justify-center opacity-0 animate-fade-up [animation-delay:250ms]">
+            <NexWarrantyCertificateVisual />
+          </div>
+        </Container>
+      </header>
+
+      {/* ── PROBLEM / SOLUTION ───────────────────────────────────────── */}
+      <section className="bg-ink py-16 text-slate-50">
+        <Container className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div>
+            <p className="mb-3 font-mono text-[0.7rem] tracking-[0.14em] text-slate-400 uppercase">The problem</p>
+            <p className="font-display text-[1.4rem] leading-snug">When the manufacturer's warranty expires, every breakdown becomes an out-of-pocket repair bill — and some plans deduct depreciation from what they pay.</p>
+          </div>
+          <div>
+            <p className="mb-3 font-mono text-[0.7rem] tracking-[0.14em] text-teal-300 uppercase">How NexWarranty solves it</p>
+            <p className="font-display text-[1.4rem] leading-snug">Mechanical and electrical breakdowns are covered in full: parts, labour and transport, with repair or replacement guaranteed and no depreciation deducted.</p>
+          </div>
+        </Container>
+      </section>
 
       <PhotoBand
         backgroundImage="https://images.unsplash.com/photo-1775210727386-4c798dfae209?fm=jpg&q=80&w=1800&auto=format&fit=crop"
-        stamp="NX–WRT–01"
+        stamp="NEXWARRANTY · NX–WRT–01"
         eyebrow="EVERY APPLIANCE, ACCOUNTED FOR"
         heading="From the first breakdown to the last service call."
         description="Whatever's plugged in at home — it's covered, doorstep to doorstep, at zero deduction."
@@ -177,8 +231,8 @@ export default function Nexwarrenty() {
       <section className="bg-paper-raised py-28">
         <Container>
           <div className="mb-12">
-            <Eyebrow>NEXUS ADVANTAGE</Eyebrow>
-            <h2 className="text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">The Nexus Advantage</h2>
+            <Eyebrow>WHY NEXWARRANTY</Eyebrow>
+            <h2 className="text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">The NexWarranty advantage</h2>
           </div>
 
           <div data-reveal className="glass-panel grid translate-y-6 grid-cols-1 gap-5.5 rounded-2xl p-10.5 opacity-0 shadow-glass transition-all duration-700 ease-out data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:grid-cols-2 lg:grid-cols-3">
@@ -254,7 +308,7 @@ function WarrantyCalculator() {
     new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
 
   return (
-    <section className="py-28">
+    <section id="calculator" className="scroll-mt-24 py-28">
       <Container>
         <div className="mb-12">
           <Eyebrow>CALCULATOR</Eyebrow>

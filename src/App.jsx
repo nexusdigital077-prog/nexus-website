@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import ITSolutions from './pages/ITSolutions';
 import Nexwarrenty from './pages/Nexwarrenty';
 import Nexlock from './pages/Nexlock';
 import Careers from './pages/Careers';
@@ -37,7 +38,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/it-solutions" element={<ITSolutions />} />
         <Route path="/nexwarrenty" element={<Nexwarrenty />} />
+        <Route path="/nexwarranty" element={<Navigate to="/nexwarrenty" replace />} />
         <Route path="/nexlock" element={<Nexlock />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/collaborate" element={<Collaborate />} />

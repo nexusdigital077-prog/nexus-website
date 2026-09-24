@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+// The three pillars sit side by side with equal weight; the dot carries each
+// pillar's accent colour.
 const navItems = [
   { to: '/', label: 'Home', end: true },
-  { to: '/#products', label: 'Products' },
-  { to: '/nexwarrenty', label: 'Nex Warrenty' },
-  { to: '/nexlock', label: 'Security' },
+  { to: '/it-solutions', label: 'IT Solutions', dot: 'bg-cyan-500' },
+  { to: '/nexlock', label: 'NexLock', dot: 'bg-blue-600' },
+  { to: '/nexwarrenty', label: 'NexWarranty', dot: 'bg-teal-500' },
   { to: '/careers', label: 'Careers' },
   { to: '/collaborate', label: 'Collaborate' },
   { to: '/contact', label: 'Contact' },
@@ -33,13 +35,14 @@ export default function Navbar() {
 
         <ul
           id="navLinks"
-          className={`fixed top-[74px] right-0 flex w-[min(280px,80vw)] flex-col rounded-bl-2xl border border-white/80 bg-white shadow-glass-lg backdrop-blur-2xl transition-transform duration-350 ease-[cubic-bezier(0.2,0.8,0.2,1)] md:static md:w-auto md:translate-x-0 md:flex-row md:items-center md:gap-9 md:rounded-none md:border-none md:bg-transparent md:shadow-none md:backdrop-blur-none ${
+          className={`fixed top-[74px] right-0 flex w-[min(280px,80vw)] flex-col rounded-bl-2xl border border-white/80 bg-white shadow-glass-lg backdrop-blur-2xl transition-transform duration-350 ease-[cubic-bezier(0.2,0.8,0.2,1)] md:static md:w-auto md:translate-x-0 md:flex-row md:items-center md:gap-5 lg:gap-8 md:rounded-none md:border-none md:bg-transparent md:shadow-none md:backdrop-blur-none ${
             isOpen ? 'translate-x-0' : 'translate-x-[110%]'
           }`}
         >
           {navItems.map((item) => (
             <li key={item.to} className="w-full md:w-auto">
               <NavLink to={item.to} end={item.end} className={linkClasses} onClick={closeMenu}>
+                {item.dot && <span className={`mr-2 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full ${item.dot}`} aria-hidden="true" />}
                 {item.label}
               </NavLink>
             </li>
