@@ -9,22 +9,6 @@ import { PILLARS, pillarById } from '../data/pillars';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useCountUp from '../hooks/useCountUp';
 import useTiltEffect from '../hooks/useTiltEffect';
-import teamSagar from '../assets/team-sagar.jpg';
-import teamKunal from '../assets/team-kunal.jpg';
-import teamKetan from '../assets/team-ketan.jpg';
-import teamAshish from '../assets/team-ashish.jpg';
-import teamJanak from '../assets/team-janak.jpg';
-import teamVivek from '../assets/team-vivek.jpg';
-import nexusTeam from '../assets/nexus-team.jpg';
-
-const team = [
-  { initial: 'S', name: 'Sagar', role: 'Chief Executive Officer', bio: 'Working for the past 10 years in IT and Business Development fields.', gradient: 'from-navy to-cyan-500', photo: teamSagar },
-  { initial: 'K', name: 'Kunal Kurmi', role: 'Chief Operating Officer', bio: 'B.Tech graduate of Thakur College of Engineering and Technology. Experienced with Spectrum, driving OnAssist and VWarranty.', gradient: 'from-[#0f6a8c] to-[#22d3ee]', photo: teamKunal },
-  { initial: 'K', name: 'Ketan', role: 'Chief Strategy Officer', bio: 'Worked with Onsitego, bringing 8 years of deep expertise in the extended warranty field.', gradient: 'from-[#17325c] to-[#0096c7]', photo: teamKetan },
-  { initial: 'V', name: 'Vivek Gupta', role: 'Lead Software Developer', bio: 'The architect behind the tech — driving digital platforms, web systems, and engineering infrastructure.', gradient: 'from-[#2563eb] to-[#06b6d4]', photo: teamVivek },
-  { initial: 'A', name: 'Ashish', role: 'Chief Financial Officer / Advisor', bio: 'Our dedicated financial advisor, ensuring robust economic growth and stability.', gradient: 'from-[#0b3d66] to-[#48cae4]', photo: teamAshish },
-  { initial: 'J', name: 'Janak Shah', role: 'Investor', bio: 'Strategic investor backing our vision for the future of IT and EMI security.', gradient: 'from-[#0a0f1e] to-[#22d3ee]', photo: teamJanak },
-];
 
 const reveal =
   'translate-y-6 opacity-0 transition-all duration-700 ease-out data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100';
@@ -294,66 +278,6 @@ export default function Home() {
         <FeatureGrid items={NEXWARRANTY_FEATURES} accent={pillarById('nexwarranty').accent} />
         <Audience label="Built for" items={['Households', 'Appliance & electronics retailers']} />
       </PillarSection>
-
-      {/* ── ONE TEAM ─────────────────────────────────────────────────── */}
-      <section className="py-24 sm:py-28">
-        <Container>
-          <div data-reveal className={`grid grid-cols-1 items-center gap-12 md:grid-cols-2 ${reveal}`}>
-            <div className="relative aspect-5/4 overflow-hidden rounded-[18px] border border-white/80 shadow-glass-lg after:absolute after:inset-0 after:bg-linear-to-br after:from-cyan-500/16 after:to-transparent after:content-['']">
-              <img src={nexusTeam} alt="The Nexus team at the headquarters office" loading="lazy" className="h-full w-full object-cover [filter:saturate(0.98)]" />
-              <span className="absolute bottom-4 left-4 z-[2] rounded-full bg-[rgba(5,10,18,0.55)] px-2.5 py-1 font-mono text-[0.78rem] text-slate-50 backdrop-blur-xs">NX–TEAM</span>
-            </div>
-            <div>
-              <Eyebrow>ONE TEAM BEHIND ALL THREE</Eyebrow>
-              <h2 className="mb-4 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">Industry operators and software engineers under one roof.</h2>
-              <p className="mb-4 text-slate-600">
-                Our leadership spent the last decade inside the warranty and device-protection industry — at Onsitego and OnAssist — and our engineering team builds the digital platforms Nexus runs on.
-              </p>
-              <p className="mb-6 text-slate-600">
-                That combination is why Nexus can ship products of its own and still take on software work for clients: we build, run and maintain real systems every day.
-              </p>
-              <Link to="/#team" className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-navy transition-[color,gap] duration-250 hover:gap-2 hover:text-pink-700">
-                Meet the leadership &rarr;
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── LEADERSHIP ───────────────────────────────────────────────── */}
-      <section id="team" className="scroll-mt-24 bg-paper-raised py-24 sm:py-28">
-        <Container>
-          <div className="mb-12">
-            <Eyebrow>02 · LEADERSHIP</Eyebrow>
-            <h2 className="mb-3 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">The people behind Nexus.</h2>
-            <p className="mb-14 max-w-[56ch] text-slate-600">A team built out of the warranty and IT industry itself — not around it.</p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                data-reveal
-                data-tilt
-                className="glass-panel translate-y-6 overflow-hidden rounded-2xl opacity-0 shadow-glass transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-glass-lg data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100"
-              >
-                <div className="badge-stripe" />
-                <div className="p-8 text-center">
-                  {member.photo ? (
-                    <img src={member.photo} alt={member.name} className="mx-auto mb-5 h-21 w-21 rounded-full object-cover object-top shadow-lg" />
-                  ) : (
-                    <div className={`mx-auto mb-5 flex h-21 w-21 items-center justify-center rounded-full bg-linear-to-br ${member.gradient} font-display text-[2.1rem] font-bold text-white`}>
-                      {member.initial}
-                    </div>
-                  )}
-                  <h4 className="mb-1 text-lg">{member.name}</h4>
-                  <p className="mb-4 font-mono text-[0.72rem] tracking-[0.06em] text-pink-700 uppercase">{member.role}</p>
-                  <p className="text-[0.85rem] leading-[1.55] text-slate-600">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* ── ROUTING CTA ──────────────────────────────────────────────── */}
       <section className="py-24 sm:py-28">

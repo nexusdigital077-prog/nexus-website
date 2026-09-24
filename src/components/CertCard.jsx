@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 
-export default function CertCard({ icon, title, description, code, actionLabel, actionTo, className = '' }) {
+export default function CertCard({ icon, title, description, code, actionLabel, actionTo, actionHref, className = '' }) {
+  const actionCls =
+    'inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-navy transition-[color,gap] duration-250 hover:gap-2 hover:text-pink-700';
+
   return (
     <div
       data-reveal
@@ -19,12 +22,15 @@ export default function CertCard({ icon, title, description, code, actionLabel, 
 
       <div className="mt-auto flex items-center justify-between px-8.5 pt-5.5 pb-8.5">
         <span className="font-mono text-[0.78rem] tracking-[0.05em] text-slate-600">{code}</span>
-        <Link
-          to={actionTo}
-          className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-navy transition-[color,gap] duration-250 hover:gap-2 hover:text-pink-700"
-        >
-          {actionLabel} &rarr;
-        </Link>
+        {actionHref ? (
+          <a href={actionHref} className={actionCls}>
+            {actionLabel} &rarr;
+          </a>
+        ) : (
+          <Link to={actionTo} className={actionCls}>
+            {actionLabel} &rarr;
+          </Link>
+        )}
       </div>
     </div>
   );
