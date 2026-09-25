@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import WelcomeOverlay from '../components/WelcomeOverlay';
 import HeroSection from '../components/HeroSection';
 import Container from '../components/Container';
 import Eyebrow from '../components/Eyebrow';
@@ -126,8 +125,6 @@ export default function Home() {
 
   return (
     <>
-      <WelcomeOverlay />
-
       <HeroSection
         eyebrow="NEXUS · TECHNOLOGY COMPANY"
         title={<>We build technology for businesses — <span className="text-gradient-brand">and our own products.</span></>}
