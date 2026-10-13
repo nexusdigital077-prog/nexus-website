@@ -26,7 +26,7 @@ export default function DevMarketingSection() {
         </div>
 
         {trainingStores.length > 0 && (
-          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {trainingStores.map((s) => (
               <li key={s.code} className="glass-panel overflow-hidden rounded-2xl shadow-glass">
                 <img src={s.image} alt={`NexLock training at ${s.store} ${s.branch}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />
