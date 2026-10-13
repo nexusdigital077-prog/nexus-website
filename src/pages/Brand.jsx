@@ -3,6 +3,7 @@ import Container from '../components/Container';
 import Eyebrow from '../components/Eyebrow';
 import useScrollReveal from '../hooks/useScrollReveal';
 import { brandBySlug } from '../data/brands';
+import top10Logo from '../assets/brands/top-10-logo.png';
 
 export default function Brand() {
   useScrollReveal();
@@ -44,15 +45,19 @@ export default function Brand() {
           <Container>
             <div className="mb-12 max-w-[640px]">
               <Eyebrow>TRAINING ACROSS MUMBAI</Eyebrow>
-              <h2 className="text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">Top 10 branches, trained on {brand.partner}.</h2>
+              <h2 className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[clamp(1.9rem,3vw,2.6rem)] text-slate-900">
+                <img src={top10Logo} alt="Top-10" className="h-[0.85em] w-auto" />
+                <span>branches, trained on {brand.partner}.</span>
+              </h2>
             </div>
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {brand.stores.map((s) => (
                 <li key={s.code} className="glass-panel overflow-hidden rounded-2xl shadow-glass">
                   <img src={s.image} alt={`${brand.partner} training at ${s.store} ${s.branch}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />
                   <div className="p-5">
-                    <p className="font-display text-[1.1rem] font-semibold text-slate-900">
-                      {s.store} <span className="text-slate-500">· {s.branch}</span>
+                    <p className="flex items-center gap-2 font-display text-[1.1rem] font-semibold text-slate-900">
+                      <img src={top10Logo} alt={s.store} className="h-[1em] w-auto" />
+                      <span className="text-slate-500">· {s.branch}</span>
                     </p>
                     <p className="mt-1 font-mono text-[0.72rem] tracking-[0.08em] text-navy/70 uppercase">Store code {s.code}</p>
                     <p className="mt-3 text-[0.9rem] leading-relaxed text-slate-600">{s.message}</p>
