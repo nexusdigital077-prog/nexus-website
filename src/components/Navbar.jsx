@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { brands } from '../data/brands';
 
 // The three pillars sit side by side with equal weight; the dot carries each
 // pillar's accent colour. The logo links home.
@@ -7,6 +8,7 @@ const navItems = [
   { to: '/it-solutions', label: 'IT Solutions', dot: 'bg-cyan-500' },
   { to: '/nexlock', label: 'NexLock', dot: 'bg-blue-600' },
   { to: '/nexwarrenty', label: 'NexWarranty', dot: 'bg-teal-500' },
+  { to: '/brands', label: 'Brands', brandsMenu: true },
   { to: '/about', label: 'About' },
   { to: '/careers', label: 'Careers' },
   { to: '/collaborate', label: 'Collaborate' },
@@ -39,14 +41,38 @@ export default function Navbar() {
             isOpen ? 'translate-x-0' : 'translate-x-[110%]'
           }`}
         >
-          {navItems.map((item) => (
-            <li key={item.to} className="w-full md:w-auto">
-              <NavLink to={item.to} end={item.end} className={linkClasses} onClick={closeMenu}>
-                {item.dot && <span className={`mr-2 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full ${item.dot}`} aria-hidden="true" />}
-                {item.label}
-              </NavLink>
-            </li>
-          ))}
+          {navItems.map((item) =>
+            item.brandsMenu ? (
+              <li key={item.to} className="group relative w-full md:w-auto">
+                <NavLink to={item.to} className={linkClasses} onClick={closeMenu}>
+                  {item.label}
+                </NavLink>
+                <div className="md:pointer-events-none md:absolute md:top-full md:left-0 md:hidden md:pt-4 md:group-focus-within:pointer-events-auto md:group-focus-within:block md:group-hover:pointer-events-auto md:group-hover:block">
+                  <ul className="pb-3 md:min-w-[230px] md:rounded-xl md:border md:border-white/80 md:bg-white md:p-2 md:shadow-glass-lg">
+                    {brands.map((b) => (
+                      <li key={b.slug}>
+                        <NavLink
+                          to={`/brands/${b.slug}`}
+                          onClick={closeMenu}
+                          className="block py-2.5 pr-6 pl-10 text-sm text-slate-700 transition-colors hover:text-navy md:rounded-lg md:px-4 md:hover:bg-navy/5"
+                        >
+                          {b.name}
+                          <span className="block text-[0.7rem] text-slate-500">{b.partner} partnership</span>
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li key={item.to} className="w-full md:w-auto">
+                <NavLink to={item.to} end={item.end} className={linkClasses} onClick={closeMenu}>
+                  {item.dot && <span className={`mr-2 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full ${item.dot}`} aria-hidden="true" />}
+                  {item.label}
+                </NavLink>
+              </li>
+            )
+          )}
         </ul>
 
         <button

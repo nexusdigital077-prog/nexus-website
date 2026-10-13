@@ -11,6 +11,8 @@ import Nexlock from './pages/Nexlock';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Collaborate from './pages/Collaborate';
+import Brands from './pages/Brands';
+import Brand from './pages/Brand';
 import NexlockPrivacy from './pages/NexlockPrivacy';
 import NexlockTerms from './pages/NexlockTerms';
 import NexwarrentyPrivacy from './pages/NexwarrentyPrivacy';
@@ -48,6 +50,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/collaborate" element={<Collaborate />} />
+        <Route path="/brands" element={<Brands />} />
+        <Route path="/brands/:slug" element={<Brand />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/nexlock/privacy" element={<NexlockPrivacy />} />
         <Route path="/nexlock/terms" element={<NexlockTerms />} />

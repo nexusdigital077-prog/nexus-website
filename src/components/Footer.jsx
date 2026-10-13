@@ -4,6 +4,7 @@ import { PILLARS } from '../data/pillars';
 
 const company = [
   { to: '/about', label: 'About & leadership' },
+  { to: '/brands', label: 'Brands' },
   { to: '/careers', label: 'Careers' },
   { to: '/collaborate', label: 'Collaborate' },
   { to: '/contact', label: 'Contact' },

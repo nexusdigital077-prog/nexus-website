@@ -61,7 +61,7 @@ export default function DevMarketingModal() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
-              to="/collaborate#dev-marketing"
+              to="/brands/dev-marketing"
               onClick={close}
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-navy px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-indigo-600"
             >
