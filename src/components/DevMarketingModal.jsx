@@ -2,33 +2,18 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import devMarketingLogo from '../assets/dev-marketing-logo.png';
 
-const SEEN_KEY = 'nx_devmarketing_seen';
 const SHOW_DELAY_MS = 1400; // let the Nexus loader finish first
 
-/* Highlight shown once per browser session when the homepage opens. */
+/* Highlight shown each time the homepage opens. */
 export default function DevMarketingModal() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem(SEEN_KEY) === '1';
-    } catch {
-      // storage can be blocked; show the popup in that case
-    }
-    if (seen) return;
     const t = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(t);
   }, []);
 
-  const close = () => {
-    setOpen(false);
-    try {
-      sessionStorage.setItem(SEEN_KEY, '1');
-    } catch {
-      // ignore
-    }
-  };
+  const close = () => setOpen(false);
 
   useEffect(() => {
     if (!open) return;

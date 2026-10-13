@@ -29,7 +29,7 @@ export default function DevMarketingSection() {
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {trainingStores.map((s) => (
               <li key={s.code} className="glass-panel overflow-hidden rounded-2xl shadow-glass">
-                <img src={s.image} alt={`NexLock training at ${s.store} ${s.branch}`} loading="lazy" className="aspect-4/3 w-full object-cover" />
+                <img src={s.image} alt={`NexLock training at ${s.store} ${s.branch}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />
                 <div className="p-5">
                   <p className="font-display text-[1.1rem] font-semibold text-slate-900">
                     {s.store} <span className="text-slate-500">· {s.branch}</span>
