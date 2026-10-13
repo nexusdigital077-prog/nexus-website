@@ -11,19 +11,24 @@ export default function PartnerTicker() {
   }));
   if (!items.length) return null;
 
+  // The track animates by one half of its width, so each half must be wider
+  // than the screen. Repeat the messages enough times to cover wide displays.
+  const REPEATS = 4;
   const copy = (hidden) =>
-    items.map((it) => (
-      <Link
-        key={`${hidden ? 'b' : 'a'}-${it.key}`}
-        to={it.to}
-        aria-hidden={hidden || undefined}
-        tabIndex={hidden ? -1 : undefined}
-        className="flex items-center gap-6 whitespace-nowrap px-6 text-[0.8rem] font-semibold tracking-[0.06em] text-white transition hover:text-cyan-300 sm:px-10"
-      >
-        {it.text}
-        <span className="text-[10px] text-cyan-400" aria-hidden="true">&#9670;</span>
-      </Link>
-    ));
+    Array.from({ length: REPEATS }, (_, r) =>
+      items.map((it) => (
+        <Link
+          key={`${hidden ? 'b' : 'a'}-${r}-${it.key}`}
+          to={it.to}
+          aria-hidden={hidden || undefined}
+          tabIndex={hidden ? -1 : undefined}
+          className="flex items-center gap-6 whitespace-nowrap px-6 text-[0.8rem] font-semibold tracking-[0.06em] text-white transition hover:text-cyan-300 sm:px-10"
+        >
+          {it.text}
+          <span className="text-[10px] text-cyan-400" aria-hidden="true">&#9670;</span>
+        </Link>
+      ))
+    );
 
   return (
     <div className="absolute inset-x-0 top-[104px] z-[500] h-9 overflow-hidden border-y border-white/10 bg-navy" role="region" aria-label="Partner news">
