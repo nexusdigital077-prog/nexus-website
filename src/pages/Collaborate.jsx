@@ -6,6 +6,7 @@ import Container from '../components/Container';
 import Eyebrow from '../components/Eyebrow';
 import useScrollReveal from '../hooks/useScrollReveal';
 import useTiltEffect from '../hooks/useTiltEffect';
+import DevMarketingSection from '../components/DevMarketingSection';
 
 const partnershipTypes = [
   'IT Solutions — New Website, App or Software Project',
@@ -132,6 +133,8 @@ export default function Collaborate() {
           </div>
         </Container>
       </section>
+
+      <DevMarketingSection />
 
       <section className="bg-paper-raised/40 py-20 border-y border-white/60">
         <Container>
