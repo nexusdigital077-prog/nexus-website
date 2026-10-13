@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import Container from '../components/Container';
+import DevMarketingModal from '../components/DevMarketingModal';
 import Eyebrow from '../components/Eyebrow';
 import { PillarBadge, PillarIcon, Wordmark } from '../components/PillarMarks';
 import { CompanyMap, ITBoardVisual, NexLockPhoneVisual, NexWarrantyCertificateVisual } from '../components/PillarVisuals';
@@ -125,6 +126,8 @@ export default function Home() {
 
   return (
     <>
+      <DevMarketingModal />
+
       <HeroSection
         eyebrow="NEXUS · TECHNOLOGY COMPANY"
         title={<>We build technology for businesses — <span className="text-gradient-brand">and our own products.</span></>}
