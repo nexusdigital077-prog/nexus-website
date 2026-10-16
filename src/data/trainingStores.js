@@ -23,6 +23,9 @@ import nallasopara2 from '../assets/stores/nallasopara-east-02.webp';
 import borivaliWest1 from '../assets/stores/borivali-west-01.webp';
 import borivaliWest2 from '../assets/stores/borivali-west-02.webp';
 import andheriWest1 from '../assets/stores/andheri-west-01.webp';
+import ghatkoparEast from '../assets/stores/ghatkopar-east.webp';
+import andheriEast1 from '../assets/stores/andheri-east-01.webp';
+import borivaliEast2 from '../assets/stores/borivali-east-02.webp';
 
 export const trainingStores = [
   {
@@ -135,6 +138,27 @@ export const trainingStores = [
     store: 'Top-10',
     branch: 'Andheri West',
     code: 'T23W01',
+    message: 'NexLock training delivered to the team at this branch.',
+  },
+  {
+    image: ghatkoparEast,
+    store: 'Top-10',
+    branch: 'Ghatkopar East',
+    code: 'T41E01',
+    message: 'NexLock training delivered to the team at this branch.',
+  },
+  {
+    image: andheriEast1,
+    store: 'Top-10',
+    branch: 'Andheri East',
+    code: 'T23E02',
+    message: 'NexLock training delivered to the team at this branch.',
+  },
+  {
+    image: borivaliEast2,
+    store: 'Top-10',
+    branch: 'Borivali East',
+    code: 'T28E02',
     message: 'NexLock training delivered to the team at this branch.',
   },
 ];

@@ -51,8 +51,8 @@ export default function Brand() {
               </h2>
             </div>
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {brand.stores.map((s) => (
-                <li key={s.code} className="glass-panel overflow-hidden rounded-2xl shadow-glass">
+              {brand.stores.map((s, i) => (
+                <li key={`${s.code}-${i}`} className="glass-panel overflow-hidden rounded-2xl shadow-glass">
                   <img src={s.image} alt={`${brand.partner} training at ${s.store} ${s.branch}`} loading="lazy" className="aspect-[4/5] w-full object-cover" />
                   <div className="p-5">
                     <p className="flex items-center gap-2 font-display text-[1.1rem] font-semibold text-slate-900">
